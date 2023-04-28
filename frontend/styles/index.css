@@ -52,8 +52,8 @@ body > nav ul {
   list-style-type: none;
   display: flex;
   justify-content: center;
-  gap: .75rem;
-  font-size: 1.3rem;
+  gap: .7rem;
+  font-size: 1.25rem;
   font-weight: bold;
 }
 
