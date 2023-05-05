@@ -6,8 +6,7 @@ import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}"
 
 console.info("Bridgetown is loaded!")
 
-
-function updateNextThirdTuesday() {
+  function updateNextThirdTuesday() {
     const today = new Date();
     let thirdTuesday = new Date(today.getFullYear(), today.getMonth(), 1);
       
@@ -19,12 +18,16 @@ function updateNextThirdTuesday() {
   
     if (today >= thirdTuesday) {
       const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
-      return updateNextThirdTuesday.call(nextMonth);
+      thirdTuesday = updateNextThirdTuesday.call(nextMonth);
     }
       
-    const formattedDate = thirdTuesday.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+    const options = { weekday: 'long', month: 'long', day: 'numeric' };
+    const formattedDate = today.getMonth() === thirdTuesday.getMonth() ? today.toLocaleDateString('en-US', options) : thirdTuesday.toLocaleDateString('en-US', options);
+    
     const meetingDate = document.getElementById('meeting-date');
     meetingDate.textContent = formattedDate;
+    
+    return thirdTuesday;
   }
   
   updateNextThirdTuesday();
