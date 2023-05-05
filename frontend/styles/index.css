@@ -47,13 +47,13 @@ body > header img {
 }
 
 body > nav ul {
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   padding: 0;
   list-style-type: none;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  font-size: 1.3rem;
+  gap: .7rem;
+  font-size: 1.25rem;
   font-weight: bold;
 }
 
