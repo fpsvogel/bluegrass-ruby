@@ -6,25 +6,33 @@ import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}"
 
 console.info("Bridgetown is loaded!")
 
-  function updateThirdTuesday() {
-    const today = new Date();
-    const thirdTueday = new Date(today.getFullYear(), today.getMonth(), 14);
-  
-    while (thirdTueday.getDay() !== 2) {
-      thirdTueday.setDate(thirdTueday.getDate() + 1);
-    }
-  
-    if (today.getMonth() === thirdTueday.getMonth() && today.getDate() >= thirdTueday.getDate())  {
-      thirdTueday.setMonth(thirdTueday.getMonth() + 1);
-    } else {
-  
-    }
-  
-    const options = { weekday: 'long', month: 'long', day: 'numeric' };
-    const formattedDate = thirdTueday.toLocaleDateString('en-US', options);
-  
-    const meetingDate = document.getElementById('meeting-date');
-    meetingDate.textContent = formattedDate;
+function getNextThirdTuesday() {
+  const today = new Date();
+  const currentMonth = today.getMonth();
+  let thirdTuesday = new Date(today.getFullYear(), currentMonth, 14);
+
+  while (thirdTuesday.getDay() !== 2) {
+    thirdTuesday.setDate(thirdTuesday.getDate() + 1);
   }
 
-  updateThirdTuesday();
+  if (thirdTuesday.getMonth() !== currentMonth) {
+    thirdTuesday = new Date(today.getFullYear(), currentMonth + 1, 1);
+
+    while (thirdTuesday.getDay() !== 2) {
+      thirdTuesday.setDate(thirdTuesday.getDate() + 1);
+    }
+  }
+
+  return thirdTuesday;
+}
+
+function updateThirdTuesday() {
+  const nextThirdTuesday = getNextThirdTuesday();
+  const options = { weekday: 'long', month: 'long', day: 'numeric' };
+  const formattedDate = nextThirdTuesday.toLocaleDateString('en-US', options);
+
+  const meetingDate = document.getElementById('meeting-date');
+  meetingDate.textContent = formattedDate;
+}
+
+updateThirdTuesday();
