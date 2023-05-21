@@ -12,7 +12,7 @@ function getNextThirdTuesday() {
   let year = today.getFullYear();
 
   // Check if the current day is after the third Tuesday
-  if (today.getDate() > 15 && today.getDay() > 2) {
+  if (today.getDate() > 15) {
     // Move to the next month
     month++;
     if (month > 11) {
