@@ -8,22 +8,30 @@ console.info("Bridgetown is loaded!")
 
 function getNextThirdTuesday() {
   const today = new Date();
-  const currentMonth = today.getMonth();
-  let thirdTuesday = new Date(today.getFullYear(), currentMonth, 14);
+  let month = today.getMonth();
+  let year = today.getFullYear();
 
-  while (thirdTuesday.getDay() !== 2) {
-    thirdTuesday.setDate(thirdTuesday.getDate() + 1);
-  }
-
-  if (thirdTuesday.getMonth() !== currentMonth) {
-    thirdTuesday = new Date(today.getFullYear(), currentMonth + 1, 1);
-
-    while (thirdTuesday.getDay() !== 2) {
-      thirdTuesday.setDate(thirdTuesday.getDate() + 1);
+  // Check if the current day is after the third Tuesday
+  if (today.getDate() > 15 && today.getDay() > 2) {
+    // Move to the next month
+    month++;
+    if (month > 11) {
+      month = 0;
+      year++;
     }
   }
 
-  return thirdTuesday;
+  const nextMonth = new Date(year, month, 1);
+
+  // Find the first Tuesday of the next month
+  while (nextMonth.getDay() !== 2) {
+    nextMonth.setDate(nextMonth.getDate() + 1);
+  }
+
+  // Add 14 days to get the third Tuesday
+  nextMonth.setDate(nextMonth.getDate() + 14);
+
+  return nextMonth;
 }
 
 function updateThirdTuesday() {
@@ -36,3 +44,4 @@ function updateThirdTuesday() {
 }
 
 updateThirdTuesday();
+
