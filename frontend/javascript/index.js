@@ -43,5 +43,5 @@ function updateMeetingDate() {
   meetingDate.textContent = formattedDate;
 }
 
-updateMeetingDate();
+//updateMeetingDate();
 
