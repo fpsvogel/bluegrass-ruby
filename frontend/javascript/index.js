@@ -1,10 +1,10 @@
-import "index.css"
-import "syntax-highlighting.css"
+import "index.css";
+import "syntax-highlighting.css";
 
 // Import all JavaScript & CSS files from src/_components
-import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}"
+import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}";
 
-console.info("Bridgetown is loaded!")
+console.info("Bridgetown is loaded!");
 
 function getNextNthTuesday(n) {
   const today = new Date();
@@ -36,12 +36,11 @@ function getNextNthTuesday(n) {
 
 function updateMeetingDate() {
   const nextFirstTuesday = getNextNthTuesday(1);
-  const options = { weekday: 'long', month: 'long', day: 'numeric' };
-  const formattedDate = nextFirstTuesday.toLocaleDateString('en-US', options);
+  const options = { weekday: "long", month: "long", day: "numeric" };
+  const formattedDate = nextFirstTuesday.toLocaleDateString("en-US", options);
 
-  const meetingDate = document.getElementById('meeting-date');
+  const meetingDate = document.getElementById("meeting-date");
   meetingDate.textContent = formattedDate;
 }
 
-//updateMeetingDate();
-
+updateMeetingDate();
