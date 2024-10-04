@@ -2,6 +2,7 @@
 layout: default
 ---
 
-<h1>{{ data.title }}</h1>
+<h1>{{ resource.data.title }}</h1>
+<h2>{{ resource.date | date: "%B %-d, %Y" }}</h2>
 
 {{ content }}
