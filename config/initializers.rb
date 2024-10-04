@@ -1,4 +1,7 @@
 Bridgetown.configure do |config|
+  init :"bridgetown-seo-tag"
+  init :"bridgetown-feed"
+
   # You can configure aspects of your Bridgetown site here instead of using
   # `bridgetown.config.yml`. For example:
   #

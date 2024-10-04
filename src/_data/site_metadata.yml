@@ -5,7 +5,6 @@
 # in the templates via {{ site.metadata.myvariable }}.
 
 title: Bluegrass Ruby
-tagline: the online home of the Bluegrass Ruby Users Group 
+tagline: Lexington, KY Ruby users group
 email: rubyists@bluegrassdevs.org
-description: >-
-  the online home of the Bluegrass Ruby Users Group 
+description: Lexington, KY Ruby users group
