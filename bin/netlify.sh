@@ -22,3 +22,6 @@ ruby -v
 echo "=== Python version ==="
 which python || echo "No python in PATH"
 python --version || echo "Python not working"
+
+echo "=== .tool-versions contents ==="
+cat .tool-versions
