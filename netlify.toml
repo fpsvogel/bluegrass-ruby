@@ -2,11 +2,13 @@
   command = "bin/bridgetown deploy && bin/netlify.sh"
   publish = "output"
 
+[build.lifecycle]
+preinstall = "mise install python 3.12.3 && mise use python 3.12.3"
+
 [build.environment]
   NODE_ENV = "development"
   BRIDGETOWN_ENV = "production"
   MISE_EXPERIMENTAL = "0"
-  MISE_VERBOSE = "1"
 
 [build.processing]
   skip_processing = false
