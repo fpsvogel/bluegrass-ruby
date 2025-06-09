@@ -3,7 +3,20 @@
   publish = "output"
 
 [build.lifecycle]
-preinstall = "mise install python 3.12.3 && mise use python 3.12.3"
+preinstall = """
+  echo '📦 Preinstall started'
+  mise install ruby 3.4.1 python 3.12.3
+  mise use --global ruby 3.4.1
+  mise use --global python 3.12.3
+  mise which ruby
+  mise which gem
+  mise which bundle
+  ruby -v
+  gem -v
+  bundler -v || true
+  echo '✅ Preinstall done'
+"""
+
 
 [build.environment]
   NODE_ENV = "development"
