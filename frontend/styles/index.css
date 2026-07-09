@@ -90,6 +90,14 @@ main {
   }
 }
 
+section {
+  background-color: #f9dddd;
+  padding: 1rem;
+  border: 1.5px dotted;
+  border-radius: 3px;
+  border-color: var(--action-color);
+}
+
 #meeting-date {
   font-weight: bold;
   color: var(--action-color);
